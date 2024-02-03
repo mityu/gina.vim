@@ -11,7 +11,7 @@ let s:CACHE_ALWAYS = 'always' " Use a cache always.
 
 function! gina#core#get_or_fail(...) abort
   let options = extend({
-        \ 'expr': '%',
+        \ 'expr': getcmdwintype() ==# '' ? '%' : '#',
         \ 'cache': s:CACHE_TRUTH,
         \}, get(a:000, 0, {})
         \)
